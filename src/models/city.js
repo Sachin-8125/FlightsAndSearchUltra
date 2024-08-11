@@ -12,6 +12,10 @@ module.exports = (sequelize,DataTypes) => {
         */
        static asscociate(models){
         //define associations here
+        this.hasMany(models.Airport,{
+            foreignKey: 'cityId'
+
+        });
        }
     }
     City.init({
