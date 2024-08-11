@@ -9,6 +9,7 @@ class CityRepository{
             throw{error};
         }
     }
+
     async deleteCity({cityId}){
         try{
             await City.destroy({
@@ -20,6 +21,7 @@ class CityRepository{
             throw{error};
         }
     }
+
     async updateCity(CityId,data){
         try {
             const city = await City.update(data,{
@@ -40,6 +42,16 @@ class CityRepository{
             return City;
         }
         catch(error){
+            console.log("Something went wrong in the repository layer");
+            throw{error};
+        }
+    }
+
+    async getAllCities(){
+        try {
+            const cities = await City.findAll();
+            return cities;
+        } catch (error) {
             console.log("Something went wrong in the repository layer");
             throw{error};
         }
